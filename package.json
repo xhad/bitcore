@@ -6,7 +6,9 @@
   "main": "index.js",
   "scripts": {
     "test": "./node_modules/.bin/mocha test/** --recursive",
-    "build-deb": "./scripts/build-deb"
+    "build-deb": "./scripts/build-deb",
+    "prepublish": "npm run snyk-protect",
+    "snyk-protect": "snyk-protect"
   },
   "bin": {
     "bitcore": "./bin/bitcore",
@@ -82,14 +84,16 @@
     "request": "browser-request"
   },
   "dependencies": {
-    "bitcore-lib": "^0.13.14",
-    "bitcore-node": "~3.1.0",
+    "bitcore-lib": "^8.22.2",
+    "bitcore-node": "~8.24.2",
     "insight-api": "^0.4.0",
-    "insight-ui": "^0.4.0"
+    "insight-ui": "^0.4.0",
+    "@snyk/protect": "latest"
   },
   "license": "MIT",
   "devDependencies": {
     "chai": "^3.3.0",
     "mocha": "^2.3.3"
-  }
+  },
+  "snyk": true
 }
